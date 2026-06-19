@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academic website for Lingxing Yao, Associate Professor in the Department of Mathematics at The University of Akron.">
+  <title>Lingxing Yao | Mathematics</title>
+  <style>
+    :root {
+      --ink: #182231;
+      --text: #394555;
+      --muted: #647184;
+      --line: #dbe1e8;
+      --paper: #ffffff;
+      --bg: #f5f7fa;
+      --navy: #234f73;
+      --green: #586f4d;
+      --maroon: #7a3b3b;
+      --focus: #a65f2b;
+      --shadow: 0 12px 30px rgba(24, 34, 49, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--navy);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--maroon);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      line-height: 1.18;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .site-header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      align-items: center;
+      display: flex;
+      gap: 1.25rem;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 1120px;
+      padding: 1rem 1.5rem;
+    }
+
+    .brand {
+      min-width: 12rem;
+    }
+
+    .brand a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand-name {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      line-height: 1.2;
+    }
+
+    .brand-role {
+      color: var(--muted);
+      display: block;
+      font-size: 0.86rem;
+      margin-top: 0.15rem;
+    }
+
+    .site-nav {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 1rem;
+      justify-content: flex-end;
+    }
+
+    .site-nav a {
+      border-bottom: 2px solid transparent;
+      color: var(--text);
+      font-size: 0.95rem;
+      padding: 0.25rem 0;
+      text-decoration: none;
+    }
+
+    .site-nav a:hover {
+      border-bottom-color: var(--green);
+      color: var(--ink);
+    }
+
+    main {
+      margin: 0 auto;
+      max-width: 1120px;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .hero {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
+      padding: 2.25rem;
+    }
+
+    .eyebrow {
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4.25rem);
+      max-width: 12ch;
+    }
+
+    .hero-summary {
+      color: var(--text);
+      font-size: 1.08rem;
+      margin-top: 1.25rem;
+      max-width: 680px;
+    }
+
+    .hero-meta {
+      border-left: 4px solid var(--green);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-left: 1.25rem;
+    }
+
+    .meta-group h2 {
+      font-size: 1.12rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .meta-group p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      padding-top: 3rem;
+    }
+
+    .section-header {
+      align-items: end;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      margin-bottom: 1.35rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.8rem;
+    }
+
+    .section-note {
+      color: var(--muted);
+      font-size: 0.94rem;
+      max-width: 520px;
+    }
+
+    .about-panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 1.5rem;
+    }
+
+    .about-panel p + p {
+      margin-top: 1rem;
+    }
+
+    .research-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .research-card,
+    .publication,
+    .teaching-card,
+    .contact-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 1.2rem;
+    }
+
+    .research-card {
+      border-top: 4px solid var(--navy);
+    }
+
+    .research-card:nth-child(2) {
+      border-top-color: var(--green);
+    }
+
+    .research-card:nth-child(3) {
+      border-top-color: var(--maroon);
+    }
+
+    .research-card:nth-child(4) {
+      border-top-color: #6d607d;
+    }
+
+    .research-card h3,
+    .publication h3,
+    .teaching-card h3 {
+      font-size: 1.23rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .research-card p,
+    .publication p,
+    .teaching-card p {
+      color: var(--text);
+      font-size: 0.96rem;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .publication {
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .publication .venue {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .teaching-layout {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    }
+
+    .course-list {
+      display: grid;
+      gap: 0.75rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .course-list li {
+      background: #f9fafb;
+      border: 1px solid var(--line);
+      list-style: none;
+      padding: 0.85rem 1rem;
+    }
+
+    .contact-layout {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .contact-card h3 {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin: 0 0 0.35rem;
+      text-transform: uppercase;
+    }
+
+    .contact-card p {
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .site-footer {
+      background: #233142;
+      color: #e7edf3;
+      font-size: 0.9rem;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 1120px;
+    }
+
+    @media (max-width: 820px) {
+      .header-inner,
+      .section-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        justify-content: flex-start;
+      }
+
+      .hero,
+      .research-grid,
+      .teaching-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 1.5rem;
+      }
+
+      .hero h1 {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      main {
+        padding: 1.25rem 1rem 3rem;
+      }
+
+      .header-inner {
+        padding: 0.85rem 1rem;
+      }
+
+      .site-header {
+        position: static;
+      }
+
+      .site-nav {
+        gap: 0.35rem 0.8rem;
+      }
+
+      .section {
+        padding-top: 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="#top" aria-label="Lingxing Yao home">
+          <span class="brand-name">Lingxing Yao</span>
+          <span class="brand-role">Associate Professor of Mathematics</span>
+        </a>
+      </div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Department of Mathematics | The University of Akron</p>
+        <h1 id="hero-title">Lingxing Yao</h1>
+        <p class="hero-summary">
+          Mathematical modeling, numerical simulation, and scientific computation for biological systems,
+          material sciences, and complex fluids.
+        </p>
+      </div>
+      <aside class="hero-meta" aria-label="Academic profile summary">
+        <div class="meta-group">
+          <h2>Current Role</h2>
+          <p>Associate Professor, Department of Mathematics, The University of Akron.</p>
+        </div>
+        <div class="meta-group">
+          <h2>Research Interests</h2>
+          <p>Numerical methods, scientific computation, mathematical biology, materials, liquid crystal and viscoelastic materials.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="section-header">
+        <h2 id="about-title">About</h2>
+        <p class="section-note">A concise academic profile for students, collaborators, and visitors.</p>
+      </div>
+      <div class="about-panel">
+        <p>
+          Lingxing Yao is an Associate Professor in the Department of Mathematics at The University of Akron.
+          His work connects mathematical models, numerical algorithms, and simulations with questions from
+          biology and material science.
+        </p>
+        <p>
+          His research has included osmotic water flow and cell migration, chemo-mechanical oscillations in
+          polyelectrolyte hydrogels, chemical transport and reaction in cellular suspensions, and computational
+          methods for moving interfaces and complex fluids.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="section-header">
+        <h2 id="research-title">Research</h2>
+        <p class="section-note">Research areas adapted from the legacy University of Akron pages and current department research descriptions.</p>
+      </div>
+      <div class="research-grid">
+        <article class="research-card">
+          <h3>Cell motility</h3>
+          <p>
+            Models for cell migration driven by actin recycling and osmotic water flow, with emphasis on
+            confined environments, energetic efficiency, and membrane-fluid interaction.
+          </p>
+        </article>
+        <article class="research-card">
+          <h3>Polyelectrolyte hydrogels</h3>
+          <p>
+            Mathematical analysis and numerical simulation of pH-sensitive hydrogel membranes for rhythmic
+            drug delivery and chemo-mechanical oscillation.
+          </p>
+        </article>
+        <article class="research-card">
+          <h3>Numerical algorithms and simulation</h3>
+          <p>
+            Numerical algorithms for fluid-structure interaction, solute transport, diffusion, reaction, and
+            moving membrane boundaries in two spatial dimensions.
+          </p>
+        </article>
+        <article class="research-card">
+          <h3>Complex fluids and materials</h3>
+          <p>
+            Mathematical modeling and computation for liquid crystal polymers, viscoelastic materials,
+            micro-bead diffusion, and related material systems.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="publications" aria-labelledby="publications-title">
+      <div class="section-header">
+        <h2 id="publications-title">Selected Publications</h2>
+        <p class="section-note">A short list of representative papers from the legacy research page.</p>
+      </div>
+      <div class="publication-list">
+        <article class="publication">
+          <h3>On the energy efficiency of cell migration in diverse physical environments</h3>
+          <p class="venue">With Y. Li, Y. Mori, and S. X. Sun. <em>Proceedings of the National Academy of Sciences</em>, 2019.</p>
+          <p><a href="https://doi.org/10.1073/pnas.1907625116">DOI: 10.1073/pnas.1907625116</a></p>
+        </article>
+        <article class="publication">
+          <h3>Rhythmomimetic Drug Delivery: Modeling, Analysis, and Numerical Simulation</h3>
+          <p class="venue">With C. Calderer, Y. Mori, and R. Siegel. <em>SIAM Journal on Applied Mathematics</em>, 2017.</p>
+          <p><a href="https://epubs.siam.org/doi/abs/10.1137/16M1067007">DOI: 10.1137/16M1067007</a></p>
+        </article>
+        <article class="publication">
+          <h3>A numerical method for osmotic water flow and solute diffusion with deformable membrane boundaries in two spatial dimension</h3>
+          <p class="venue">With Y. Mori. <em>Journal of Computational Physics</em>, 2017.</p>
+          <p><a href="https://doi.org/10.1016/j.jcp.2017.09.006">DOI: 10.1016/j.jcp.2017.09.006</a></p>
+        </article>
+        <article class="publication">
+          <h3>Simulations of Chemical Transport and Reaction in a Suspension of Cells I: An Augmented Forcing Point Method for the Stationary Case</h3>
+          <p class="venue">With A. Fogelson. <em>International Journal for Numerical Methods in Fluids</em>, 2012.</p>
+          <p><a href="https://doi.org/10.1002/fld.2661">DOI: 10.1002/fld.2661</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="teaching" aria-labelledby="teaching-title">
+      <div class="section-header">
+        <h2 id="teaching-title">Teaching</h2>
+        <p class="section-note">A compact educational section focused on course areas rather than dated semester logistics.</p>
+      </div>
+      <div class="teaching-layout">
+        <article class="teaching-card">
+          <h3>Teaching Areas</h3>
+          <p>
+            Courses taught include differential equations, engineering mathematics, and calculus. Course
+            materials and semester-specific details can be added here when needed.
+          </p>
+        </article>
+        <ul class="course-list" aria-label="Representative courses">
+          <li>Introduction to ODE</li>
+          <li>Advanced Engineering Mathematics I</li>
+          <li>Calculus I</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="section-header">
+        <h2 id="contact-title">Contact</h2>
+        <p class="section-note">Department contact information from the legacy University of Akron contact page.</p>
+      </div>
+      <div class="contact-layout">
+        <article class="contact-card">
+          <h3>Email</h3>
+          <p><a href="mailto:lyao@uakron.edu">lyao@uakron.edu</a></p>
+        </article>
+        <article class="contact-card">
+          <h3>Phone</h3>
+          <p>330-972-7402</p>
+        </article>
+        <article class="contact-card">
+          <h3>Office</h3>
+          <p>CAS 256</p>
+        </article>
+        <article class="contact-card">
+          <h3>Mailing Address</h3>
+          <p>The University of Akron<br>Department of Mathematics<br>Akron, OH 44325-4002</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>Lingxing Yao | The University of Akron</span>
+      <span>Static site published with GitHub Pages.</span>
+    </div>
+  </footer>
+</body>
+</html>
